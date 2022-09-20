@@ -1,2 +1,1 @@
-#!/bin/bash
-pan
+all ru
