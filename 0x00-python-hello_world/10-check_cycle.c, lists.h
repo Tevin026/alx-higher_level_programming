@@ -1,32 +1,22 @@
 #!/usr/bin/python3
-#include <stdlib.h>
 #include "lists.h"
 
 /**
- * check_cycle - Checks if a singly-linked list contains a cycle.
- * @list: A singly-linked list.
- *
- * Return: If there is no cycle - 0
- *         If there is a cycle - 1
+ * check_cycle - checks if a singly linked list has a cycle in it.
+ * @list: linked list
+ * Return: a integer.
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *turtle, *hare;
+	listint_t *lts = list;
+	listint_t *aux = lts;
 
-	if (list == NULL || list->next == NULL)
-		return (0);
-
-	turtle = list->next;
-	hare = list->next->next;
-
-	while (turtle && hare && hare->next)
+	while (lts && aux && lts->next)
 	{
-		if (turtle == hare)
+		aux = aux->next;
+		lts = lts->next->next;
+		if (aux == lts)
 			return (1);
-
-		turtle = turtle->next;
-		hare = hare->next->next;
 	}
-
 	return (0);
 }
