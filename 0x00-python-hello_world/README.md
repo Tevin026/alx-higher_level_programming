@@ -1,1 +1,2 @@
-all ru
+#!/usr/bin/python3
+pan
